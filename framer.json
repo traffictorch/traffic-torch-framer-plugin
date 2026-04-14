@@ -1,0 +1,6 @@
+{
+  "id": "ttpapp",
+  "name": "Traffic Torch",
+  "modes": ["canvas"],
+  "icon": "/icon.svg"
+}
