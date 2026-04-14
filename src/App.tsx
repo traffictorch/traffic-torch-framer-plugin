@@ -57,7 +57,7 @@ export default function App() {
 
       {/* Strong Educational Message */}
       <div className="mb-6 p-5 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-3xl text-sm leading-relaxed">
-        <strong className="text-amber-600 dark:text-amber-400 block mb-1">Please use a publicly published site URL or paste one manually for accurate SEO + UX analysis.</strong>
+        <strong className="text-amber-600 dark:text-amber-400 block mb-1">Please use a publicly published site URL for accurate SEO + UX analysis.</strong>
       </div>
 
       {/* Tool Selector */}
