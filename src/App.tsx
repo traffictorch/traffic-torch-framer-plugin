@@ -28,12 +28,18 @@ export default function App() {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [url, setUrl] = useState("")
 
+  // === FIX: Follow Framer's theme ===
   useEffect(() => {
-    const unsubscribe = framer.subscribeToPublishInfo((info) => {
-      if (info?.url && !url) setUrl(info.url)
-    })
-    return unsubscribe
-  }, [url])
+    try {
+      const unsubscribe = framer.subscribeToTheme((theme) => {
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+      });
+      return unsubscribe;
+    } catch (e) {
+      // Safe fallback if the function is not available in your Framer version
+      console.log("Theme subscription not available in this Framer version");
+    }
+  }, []);
 
   const selectedTool = tools[selectedIndex]
 
