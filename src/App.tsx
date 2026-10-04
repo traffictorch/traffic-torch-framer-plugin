@@ -8,6 +8,9 @@ interface Tool {
 }
 
 const tools: Tool[] = [
+  { emoji: "📈", name: "NUSA Tool", path: "/" },
+  { emoji: "🗼", name: "Lighthouse Plus", path: "/lighthouse-plus-tool/" },
+  { emoji: "🚀", name: "AEO Performance", path: "/aeo-performance-tool/" },
   { emoji: "⚜️", name: "Topical Authority Tool", path: "/topical-authority-audit-tool/" },
   { emoji: "🧬", name: "SEO Entity Tool", path: "/seo-entity-extractor-tool/" },
   { emoji: "🎯", name: "SEO Intent Tool", path: "/seo-intent-tool/" },
@@ -16,7 +19,7 @@ const tools: Tool[] = [
   { emoji: "🔍", name: "AI Search Optimization Tool", path: "/ai-search-optimization-tool/" },
   { emoji: "🤖", name: "AI Content Audit Tool", path: "/ai-audit-tool/" },
   { emoji: "🎙️", name: "AI Voice Search Tool", path: "/ai-voice-search-tool/" },
-  { emoji: "⚖️", name: "SEO + UX Audit", path: "/" },
+  { emoji: "⚖️", name: "SEO + UX Tool", path: "/seo-ux-tool/" },
   { emoji: "⚠️", name: "Quit Risk Tool", path: "/quit-risk-tool/" },
   { emoji: "🔑", name: "Keyword Research", path: "/keyword-research-tool/" },
   { emoji: "🗝️", name: "Keyword Placement Tool", path: "/keyword-tool/" },
@@ -28,18 +31,17 @@ export default function App() {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [url, setUrl] = useState("")
 
-  // === FIX: Follow Framer's theme ===
+  // Follow Framer's theme
   useEffect(() => {
     try {
       const unsubscribe = framer.subscribeToTheme((theme) => {
-        document.documentElement.classList.toggle('dark', theme === 'dark');
-      });
-      return unsubscribe;
-    } catch (e) {
-      // Safe fallback if the function is not available in your Framer version
-      console.log("Theme subscription not available in this Framer version");
+        document.documentElement.classList.toggle("dark", theme === "dark")
+      })
+      return unsubscribe
+    } catch {
+      console.log("Theme subscription not available in this Framer version")
     }
-  }, []);
+  }, [])
 
   const selectedTool = tools[selectedIndex]
 
@@ -52,23 +54,33 @@ export default function App() {
 
   return (
     <div className="h-full bg-white dark:bg-zinc-950 text-gray-800 dark:text-gray-200 p-6 flex flex-col overflow-auto font-sans">
-      {/* Header - Your tweak kept + improved */}
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-3xl shadow-sm">🚥</div>
+        <div className="w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-3xl shadow-sm">
+          🚥
+        </div>
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">Traffic Torch</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">UX AI & SEO Health Analysis Tools</p>
+          <h1 className="text-2xl font-semibold tracking-tight">
+            Traffic Torch AI SEO Toolkit
+          </h1>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            AI SEO, AEO & UX Health Analysis Tools
+          </p>
         </div>
       </div>
 
-      {/* Strong Educational Message */}
       <div className="mb-6 p-5 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-3xl text-sm leading-relaxed">
-        <strong className="text-amber-600 dark:text-amber-400 block mb-1">Please use a publicly published site URL for accurate SEO + UX analysis.</strong>
+        <strong className="text-amber-600 dark:text-amber-400 block mb-1">
+          Please use a publicly published site URL for accurate SEO + UX analysis.
+        </strong>
+        <span className="text-amber-700 dark:text-amber-300">
+          All tools now include CMS-specific fixes and Ask AI features.
+        </span>
       </div>
 
-      {/* Tool Selector */}
       <div className="mb-6">
-        <label className="block text-sm font-medium mb-2 text-gray-600 dark:text-gray-400">Choose Tool</label>
+        <label className="block text-sm font-medium mb-2 text-gray-600 dark:text-gray-400">
+          Choose Tool
+        </label>
         <select
           value={selectedIndex}
           onChange={(e) => setSelectedIndex(Number(e.target.value))}
@@ -82,9 +94,10 @@ export default function App() {
         </select>
       </div>
 
-      {/* Site URL Input */}
       <div className="mb-8">
-        <label className="block text-sm font-medium mb-2 text-gray-600 dark:text-gray-400">Site URL</label>
+        <label className="block text-sm font-medium mb-2 text-gray-600 dark:text-gray-400">
+          Site URL
+        </label>
         <input
           type="url"
           value={url}
@@ -94,7 +107,6 @@ export default function App() {
         />
       </div>
 
-      {/* Big Green Launch Button */}
       <button
         onClick={launchTool}
         className="w-full py-5 text-lg font-semibold bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-white rounded-3xl flex items-center justify-center gap-3 transition-all mb-8 shadow-sm"
@@ -102,17 +114,17 @@ export default function App() {
         Launch Tool with URL →
       </button>
 
-      {/* Help Guides */}
       <button
-        onClick={() => window.open("https://traffictorch.net/ai-ux-seo-help-guides/", "_blank")}
+        onClick={() =>
+          window.open("https://traffictorch.net/ai-ux-seo-help-guides/", "_blank")
+        }
         className="w-full py-4 text-sm font-medium border border-gray-200 dark:border-zinc-700 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-2xl transition-colors"
       >
         📚 Help Guides & Documentation
       </button>
 
-      {/* Footer */}
       <p className="mt-auto text-xs text-center text-gray-400 dark:text-gray-500 pt-8">
-        Traffic Torch • Instant 360° SEO & UX Health Analysis • Built for Framer
+        Traffic Torch AI SEO Toolkit • Instant 360° AI SEO, AEO & UX Health Analysis • Built for Framer
       </p>
     </div>
   )

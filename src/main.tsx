@@ -4,9 +4,9 @@ import "./index.css"
 import App from "./App"
 
 framer.showUI({
-  title: "Traffic Torch",
+  title: "Traffic Torch AI SEO Toolkit",
   width: 380,
-  height: 660,
+  height: 680,
   position: "top right",
 })
 
