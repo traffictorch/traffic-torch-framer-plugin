@@ -48,8 +48,16 @@ export default function App() {
   const launchTool = () => {
     const base = `https://traffictorch.net${selectedTool.path}`
     const finalUrl = url ? `${base}?url=${encodeURIComponent(url)}` : base
+    
+    // 1. Launch the tool first
     window.open(finalUrl, "_blank")
-    framer.showNotification(`✅ Launched ${selectedTool.name}`, { variant: "success" })
+
+    // 2. Wrap the notification in try/catch to prevent interrupting the flow
+    try {
+      framer.notify(`✅ Launched ${selectedTool.name}`, { type: "success" })
+    } catch (error) {
+      console.warn("Notification failed to show, but tool launched successfully.", error)
+    }
   }
 
   return (
